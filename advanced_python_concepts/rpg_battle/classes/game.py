@@ -15,7 +15,7 @@ class Person:
         self.max_hp = hp
         self.hp = hp
         self.max_mp = mp
-        self.max_mp = mp
+        self.mp = mp
         self.atkl = atk - 10
         self.atkh = atk + 10
         self.df = df
@@ -55,7 +55,7 @@ class Person:
         return self.magic[i]["name"]
 
     def get_spell_cost(self, i):
-        return self.magic[i]["cost"]
+        return self.magic[i]["mp"]
     
 
     def choose_action(self):
@@ -69,5 +69,5 @@ class Person:
         i = 1
         print("Magic")
         for spell in self.magic:
-            print(str(i) + ":", spell["name"], "(cost:", spell["mp"] + "mp)")
+            print(str(i) + ":", spell["name"], "(cost:", str(spell["mp"]) + "mp)")
             i += 1
