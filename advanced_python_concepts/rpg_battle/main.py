@@ -1,8 +1,8 @@
 from classes.game import Person, bcolors
 
-magic = [{"name": "Fire", "cost": 10, "dmg": 60},
-        {"name": "Ice", "cost": 10, "dmg": 80},
-        {"name": "Spark", "cost": 10, "dmg": 60}]
+magic = [{"name": "Fire", "mp": 10, "dmg": 60},
+        {"name": "Ice", "mp": 10, "dmg": 80},
+        {"name": "Spark", "mp": 10, "dmg": 60}]
 
 player = Person(460, 65, 60, 34, magic)
 
