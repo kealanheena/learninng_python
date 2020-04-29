@@ -20,3 +20,14 @@
 - For/while loops
 - Importing libraries into a script
 - Project #1 - Building a calculator
+
+## Advanced Python Concepts
+
+- PEP guidelines
+- Breaking out of while loops
+- Continuing while loops
+- Classes & objects
+- Instance variables
+- Class & instance variables
+- How to add comments to your code
+- Importing modules from relative paths
