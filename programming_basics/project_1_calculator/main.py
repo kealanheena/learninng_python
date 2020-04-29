@@ -9,12 +9,21 @@ run = True
 def preform_math():
     global run
     global previous
-    equation = input("Enter equation:")
+    equation = ""
+    if previous is 0:
+        equation = input("Enter equation:")
+    else:
+        equation = input(str(previous))
     if equation == 'quit':
+        print("Goodbye, Human.")
         run = False
     else:
-        previous = equation
-        print("You typed", previous)
+        equation = re.sub('[a-zA-Z,.:()" "]', '', equation)
+
+        if previous is 0:
+            previous = eval(equation)
+        else:
+            previous = eval(str(previous) + equation)
 
 while run:
     preform_math()
