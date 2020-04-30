@@ -23,7 +23,12 @@ hielixer = Item("MegaElixer", "elixer", "Fully restores the party's HP/MP", 9999
 grenade = Item("Grenade", "attack", "Deals 500 damage", 500)
 
 player_spells = [fire, thunder, blizzard, meteor, quake, cure, cura]
-player_items = [potion, hipotion, superpotion, elixer, hielixer, grenade]
+player_items = [{"item": potion, "quantity": 15},
+                {"item": hipotion, "quantity": 5},
+                {"item": superpotion, "quantity": 5},
+                {"item": elixer, "quantity": 5},
+                {"item": hielixer, "quantity": 5},
+                {"item": grenade, "quantity": 5}]
 
 # Instatiate People
 player = Person(460, 65, 60, 34, player_spells, player_items)
@@ -76,7 +81,13 @@ while running:
         if item_choice is -1:
             continue
 
-        item = player.items[item_choice]
+        item = player.items[item_choice]["item"]
+
+        if player.items[item_choice]["quantity"] is 0:
+            print(bcolors.FAIL + "\n" + "None left..." + bcolors.ENDC)
+            continue
+
+        player.items[item_choice]["quantity"] -= 1
 
         if item.type is "potion":
             player.heal(item.prop)
