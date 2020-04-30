@@ -78,6 +78,16 @@ class Person:
 			print("      " + str(i) + ".", item["item"].name, ":", item["item"].description, " (x" + str(item["quantity"]) + ")")
 			i += 1
 
+	def choose_target(self, enemies):
+		i = 1
+		print("\n" + bcolors.FAIL + bcolors.BOLD + "    TARGET:" + bcolors.ENDC)
+		for enemy in enemies:
+			print("        " + str(i) + ".", enemy.name)
+			i += 1
+		choice = int(input("    Choose target:")) - 1
+		return choice
+
+
 	def get_enemy_stats(self):
 		hp_bar = ""
 		hp_bar_ticks = (self.hp / self.max_hp) * 100 / 2
@@ -92,7 +102,7 @@ class Person:
 		while len(display_hp) < 11:
 			display_hp = " " + display_hp
 
-		print("                    __________________________________________________")
+		print("                     __________________________________________________")
 		print(bcolors.BOLD + self.name + " " + 
 			display_hp + " |" + bcolors.FAIL + hp_bar + bcolors.ENDC + bcolors.BOLD + "|   " + bcolors.ENDC)
 
