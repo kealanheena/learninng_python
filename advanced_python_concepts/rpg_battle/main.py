@@ -3,15 +3,15 @@ from classes.magic import Spell
 from classes.inventory import Item
 
 # Create Black Magic
-fire = Spell("Fire", 10, 600, "black")
-thunder = Spell("Thunder", 10, 600, "black")
-blizzard = Spell("Blizzard", 10, 600, "black")
-meteor = Spell("Meteor", 20, 1200, "black")
-quake = Spell("Quake", 14, 820, "black")
+fire = Spell("Fire", 25, 600, "black")
+thunder = Spell("Thunder", 25, 600, "black")
+blizzard = Spell("Blizzard", 25, 600, "black")
+meteor = Spell("Meteor", 40, 1200, "black")
+quake = Spell("Quake", 14, 140, "black")
 
 # Create White Magic
-cure = Spell("Cure", 12, 620, "white")
-cura = Spell("Cura", 18, 1500, "white")
+cure = Spell("Cure", 25, 620, "white")
+cura = Spell("Cura", 32, 1500, "white")
 
 # Create some Items
 potion = Item("Potion", "potion", "Heals 50 HP", 50)
@@ -31,10 +31,10 @@ player_items = [{"item": potion, "quantity": 15},
                 {"item": grenade, "quantity": 5}]
 
 # Instatiate People
-player1 = Person("Valos:", 3260, 132, 132, 34, player_spells, player_items)
-player2 = Person("Gimar:", 4160, 188, 188, 34, player_spells, player_items)
-player3 = Person("Robot:", 3089, 174, 174, 34, player_spells, player_items)
-enemy = Person("Mercer", 11200, 701, 315, 15, [], [])
+player1 = Person("Valos:", 3260, 132, 300, 34, player_spells, player_items)
+player2 = Person("Gimar:", 4160, 188, 311, 34, player_spells, player_items)
+player3 = Person("Robot:", 3089, 174, 288, 34, player_spells, player_items)
+enemy = Person("Mercer", 11200, 701, 525, 15, [], [])
 
 players = [player1, player2, player3]
 
@@ -47,7 +47,7 @@ while running:
     print("======================")
 
     print("\n\n")
-    print("NAME                HP                                  MP        ")
+    print("NAME                HP                                    MP        ")
     for player in players:
         player.get_stats()
         print("\n")
