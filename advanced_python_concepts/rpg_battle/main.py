@@ -3,20 +3,20 @@ from classes.magic import Spell
 from classes.inventory import Item
 
 # Create Black Magic
-fire = Spell("Fire", 10, 100, "black")
-thunder = Spell("Thunder", 10, 100, "black")
-blizzard = Spell("Blizzard", 10, 100, "black")
-meteor = Spell("Meteor", 20, 200, "black")
-quake = Spell("Quake", 14, 140, "black")
+fire = Spell("Fire", 10, 600, "black")
+thunder = Spell("Thunder", 10, 600, "black")
+blizzard = Spell("Blizzard", 10, 600, "black")
+meteor = Spell("Meteor", 20, 1200, "black")
+quake = Spell("Quake", 14, 820, "black")
 
 # Create White Magic
-cure = Spell("Cure", 12, 120, "white")
-cura = Spell("Cura", 18, 200, "white")
+cure = Spell("Cure", 12, 620, "white")
+cura = Spell("Cura", 18, 1500, "white")
 
 # Create some Items
 potion = Item("Potion", "potion", "Heals 50 HP", 50)
 hipotion = Item("Hi-Potion", "potion", "Heals 100 HP", 100)
-superpotion = Item("Super Potion", "potion", "Heals 500 HP", 500)
+superpotion = Item("Super Potion", "potion", "Heals 1000 HP", 1000)
 elixer = Item("Elixer", "elixer", "Fully restores HP/MP of one party member", 9999)
 hielixer = Item("MegaElixer", "elixer", "Fully restores the party's HP/MP", 9999)
 
@@ -31,10 +31,10 @@ player_items = [{"item": potion, "quantity": 15},
                 {"item": grenade, "quantity": 5}]
 
 # Instatiate People
-player1 = Person("Valos:", 3260, 65, 60, 34, player_spells, player_items)
-player2 = Person("Gimar:", 4160, 65, 60, 34, player_spells, player_items)
-player3 = Person("Robot:", 3089, 65, 60, 34, player_spells, player_items)
-enemy = Person("Mercer", 1200, 65, 45, 15, [], [])
+player1 = Person("Valos:", 3260, 132, 132, 34, player_spells, player_items)
+player2 = Person("Gimar:", 4160, 188, 188, 34, player_spells, player_items)
+player3 = Person("Robot:", 3089, 174, 174, 34, player_spells, player_items)
+enemy = Person("Mercer", 11200, 701, 315, 15, [], [])
 
 players = [player1, player2, player3]
 
