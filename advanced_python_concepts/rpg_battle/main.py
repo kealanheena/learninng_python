@@ -78,6 +78,17 @@ while running:
 
         item = player.items[item_choice]
 
+        if item.type is "potion":
+            player.heal(item.prop)
+            print(bcolors.OKGREEN + "\n" + item.name + " heals for " + str(item.prop), "HP" + bcolors.ENDC)
+        elif item.type is "elixer":
+            player.hp = player.max_hp
+            player.mp = player.max_mp
+            print(bcolors.OKGREEN + "\n" + item.name + " fully restores HP/MP" + bcolors.ENDC)
+        elif item.type is "attack":
+            enemy.take_damage(item.prop)
+            print(bcolors.FAIL + "\n" + item.name + " Deals " + str(item.prop), "points of damage" + bcolors.ENDC)
+
     enemy_choice = 1
 
     enemy_dmg = enemy.generate_damage()
