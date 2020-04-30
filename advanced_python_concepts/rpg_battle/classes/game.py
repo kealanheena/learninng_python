@@ -97,7 +97,16 @@ class Person:
 		while len(mp_bar) < 10:
 			mp_bar += " "
 
-		print("                    _________________________             __________")
+		display_hp = str(self.hp) + "/" + str(self.max_hp)
+		while len(display_hp) < 9:
+			display_hp = " " + display_hp 
+
+		display_mp = str(self.mp) + "/" + str(self.max_mp)
+		while len(display_mp) < 8:
+			display_mp = " " + display_mp
+
+
+		print("                    _________________________              __________")
 		print(bcolors.BOLD + self.name + "   " + 
-			str(self.hp) + "/" + str(self.max_hp) + " |" + bcolors.OKGREEN + hp_bar + bcolors.ENDC + bcolors.BOLD + "|   " + 
-			str(self.mp) + "/" + str(self.max_mp) + " |" + bcolors.OKBLUE + mp_bar + bcolors.ENDC +"|" + bcolors.ENDC)
+			display_hp + " |" + bcolors.OKGREEN + hp_bar + bcolors.ENDC + bcolors.BOLD + "|   " + 
+			display_mp + " |" + bcolors.OKBLUE + mp_bar + bcolors.ENDC +"|" + bcolors.ENDC)
