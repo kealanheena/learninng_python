@@ -145,7 +145,9 @@ class Person:
 		spell = self.magic[magic_choice]
 		magic_dmg = spell.generate_damage()
 
-		if self.mp < spell.cost:
+		pct = (self.hp / self.mhp) * 100
+
+		if self.mp < spell.cost or spell.type is "white" and pct > 50:
 			self.choose_enemy_spell()
 		else:
 			return spell, magic_dmg

@@ -13,6 +13,7 @@ quake = Spell("Quake", 14, 140, "black")
 # Create White Magic
 cure = Spell("Cure", 25, 620, "white")
 cura = Spell("Cura", 32, 1500, "white")
+curaga = Spell("Curaga", 50, 6000, "white")
 
 # Create some Items
 potion = Item("Potion", "potion", "Heals 50 HP", 50)
@@ -24,7 +25,7 @@ hielixer = Item("MegaElixer", "elixer", "Fully restores the party's HP/MP", 9999
 grenade = Item("Grenade", "attack", "Deals 500 damage", 500)
 
 player_spells = [fire, thunder, blizzard, meteor, quake, cure, cura]
-enemy_spells = [fire, meteor, cure]
+enemy_spells = [fire, meteor, curaga]
 player_items = [{"item": potion, "quantity": 15},
                 {"item": hipotion, "quantity": 5},
                 {"item": superpotion, "quantity": 5},
@@ -170,9 +171,10 @@ while running:
         print(bcolors.FAIL + "Your enemies have defeated you!" + bcolors.ENDC)
         running = False
 
+    print("\n")
     # Enemy attack phase
     for enemy in enemies:
-        enemy_choice = random.randrange(0, 3)
+        enemy_choice = random.randrange(0, 2)
         if enemy_choice is 0:
             # Choose attack
             target = random.randrange(0, 3)
@@ -183,6 +185,21 @@ while running:
 
         elif enemy_choice is 1:
             spell, magic_dmg = enemy.choose_enemy_spell()
-            print("Enemy chose", spell.name, "damage is", magic_dmg)
+            enemy.reduce_mp(spell.cost)
+
+            if spell.type == "white":
+                enemy.heal(magic_dmg)
+                print(bcolors.OKBLUE + spell.name + " heals " + enemy.name.replace(" ", "") + " for ", str(magic_dmg), "HP." + bcolors.ENDC)
+            elif spell.type == "black":
+                target = random.randrange(0, 3)
+                players[target].take_damage(magic_dmg)
+
+                print(bcolors.OKBLUE + enemy.name.replace(" ", "") + "'s" + spell.name + " deals", str(magic_dmg), "points of magic damage to " + players[target].name.replace(" ", "") + bcolors.ENDC)
+                
+                if players[target].get_hp() is 0:
+                    print(players[target].name.replace(":", "") + " has been defeated.")
+                    del players[target]
+
+            # print("Enemy chose", spell.name, "damage is", magic_dmg)
         
 
