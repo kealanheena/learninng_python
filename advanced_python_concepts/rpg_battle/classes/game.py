@@ -82,8 +82,9 @@ class Person:
 		i = 1
 		print("\n" + bcolors.FAIL + bcolors.BOLD + "    TARGET:" + bcolors.ENDC)
 		for enemy in enemies:
-			print("        " + str(i) + ".", enemy.name)
-			i += 1
+			if enemy.get_hp() is not 0:
+				print("        " + str(i) + ".", enemy.name)
+				i += 1
 		choice = int(input("    Choose target:")) - 1
 		return choice
 
@@ -102,7 +103,7 @@ class Person:
 		while len(display_hp) < 11:
 			display_hp = " " + display_hp
 
-		print("                     __________________________________________________")
+		print("                   __________________________________________________")
 		print(bcolors.BOLD + self.name + " " + 
 			display_hp + " |" + bcolors.FAIL + hp_bar + bcolors.ENDC + bcolors.BOLD + "|   " + bcolors.ENDC)
 
